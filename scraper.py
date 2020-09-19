@@ -1,6 +1,11 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+import json
 
-driver = webdriver.Chrome()
+options = Options()
+options.headless = True
+driver = webdriver.Chrome(options=options)
+
 driver.get("https://www.newyorker.com/goings-on-about-town/night-life")
 
 assert "The New Yorker" in driver.title
@@ -12,18 +17,19 @@ suggestions = dict()
 for elem in elements:
     try:
         full_suggestion = elem.get_attribute("textContent").split(":")
-        artist, piece = full_suggestion[0], full_suggestion[1].strip().lstrip("“").rstrip("”")
-        suggestion_type = "piece"
+        artist, track = full_suggestion[0], full_suggestion[1].strip().lstrip("“").rstrip("”")
+        suggestion_type = "tracks"
     except IndexError:
-        suggestion_type = "album"
-        artist = piece = elem.get_attribute("textContent")
+        suggestion_type = "albums"
+        artist = track = elem.get_attribute("textContent")
 
     if artist not in suggestions.keys():
-        suggestions[artist] = [(suggestion_type, piece)]
-    else:
-        suggestions[artist].append((suggestion_type, artist))
+        suggestions[artist] = {suggestion_type:[track]}
 
-for k, v in suggestions.items():
-    print(k," ->", v)
+    else:
+        suggestions[artist][suggestion_type].append(track)
 
 driver.close()
+
+with open('records.txt','w') as records:
+    json.dump(suggestions, records)
