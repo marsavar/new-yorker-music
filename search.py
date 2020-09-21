@@ -1,7 +1,5 @@
 from spotifyAPI import *
-
-
-
+from credentials import *
 
 spotify = SpotifyAPI(client_id, client_secret)
 spotify.perform_auth()
