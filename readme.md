@@ -10,6 +10,4 @@ recommendations. These are then formatted to JSON and saved into `records.json`
 `index.html` displays the albums in a fancy way.
 
 ### What's next?
-Updates only happen when the Python script is run manually, therefore a way is needed to automate the running of the
-script.
- 
+Updates only happen when the Python script is run manually; need to find a way to automate the running of the script on a weekly basis.
