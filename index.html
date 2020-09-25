@@ -11,7 +11,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        <h1>New Yorker Music Scraper &#127925;</h1>
+        <h1>The New Yorker Music Scraper &#127925;</h1>
         <p>A python script that scrapes the New Yorker's Jazz, Rock, and Pop music recommendations.</p>
         <div class="container" id="cont">
             <script>
@@ -25,28 +25,24 @@
                     node.appendChild(newNode);
                     i++;
                     
-                });
-                
-                
-                i = 0;
+                })
+
+                i = Object.keys(albums).length-1;
+
                 Object.keys(albums).forEach(key => {
                     var node = document.getElementById(i);
                     var newNode = document.createElement('iframe');
                     newNode.src = 'https://open.spotify.com/embed/album/' + albums[key][0]['id']
-                    newNode.width = 300
-                    newNode.height = 380
-                    newNode.frameBorder = 0
-                    newNode.allowtransparency = true
+                    newNode.width = 300;
+                    newNode.height = 380;
+                    newNode.frameBorder = 0;
+                    newNode.allowtransparency = true;
                     newNode.allow = 'encrypted-media'
                     node.appendChild(newNode);
-                    i++;
+                    i--;
                     
                 });
- });
-           
-    
-                
-            
+            });
             </script>      
         </div>
     </body>
