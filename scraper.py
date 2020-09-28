@@ -12,14 +12,13 @@ assert 'The New Yorker' in driver.title
 
 elements = driver.find_elements_by_class_name('title')
 
-with open('records.json','r') as records:
+with open('records.json', 'r') as records:
     try:
         suggestions = json.load(records)
     except:
         suggestions = dict()
 
-with open('records.json','w') as records:
-
+with open('records.json', 'w') as records:
     added = 0
 
     for elem in elements:
@@ -30,14 +29,15 @@ with open('records.json','w') as records:
             artist = album = elem.get_attribute('textContent')
 
         if artist not in suggestions.keys():
-            suggestions[artist] = [{'album':album}]
+            suggestions[artist] = [{'album': album}]
             added += 1
 
-        elif album not in suggestions[artist]:
-            suggestions[artist].append({'album':album})
+        elif not any(d['album'] == album for d in suggestions[artist]):
+            suggestions[artist].append({'album': album})
+            added += 1
 
     json.dump(suggestions, records)
 
 driver.close()
 
-print("Added",added,"albums")
+print("Added", added, "albums")
