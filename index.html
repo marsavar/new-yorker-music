@@ -2,17 +2,18 @@
 <html>
     <head>
         <title>
-            New Yorker Music Scraper
+            The New Yorker Music Scraper
         </title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style2.css">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap');
         </style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        <h1>The New Yorker Music Scraper &#127925;</h1>
-        <p>A python script that scrapes the New Yorker's Jazz, Rock, and Pop music recommendations.</p>
+        <h1>The New Yorker Music Scraper &#127911;</h1>
+        <p>Hi! This is a page that uses a python script to scrape the New Yorker's Jazz, Rock, and Pop music recommendations.<br>
+        Hover over the album covers to listen to each album's tracks.</p>
         <div class="container" id="cont">
             <script>
         $.getJSON( "./records.json", function( albums ) {
@@ -20,9 +21,18 @@
                 Object.keys(albums).forEach(key => {
                     var node = document.getElementById('cont');
                     var newNode = document.createElement('span');
-                    newNode.className = 'card';
+                    newNode.className = 'cardcont';
                     newNode.id = i;
                     node.appendChild(newNode);
+
+                    node = document.getElementById(i)
+                    newNode = document.createElement('div')
+                    newNode.className = 'card'
+                    newNode.id = 'card'+i
+                    node.appendChild(newNode)
+
+
+
                     i++;
                     
                 })
@@ -30,8 +40,38 @@
                 i = Object.keys(albums).length-1;
 
                 Object.keys(albums).forEach(key => {
-                    var node = document.getElementById(i);
-                    var newNode = document.createElement('iframe');
+
+                    var node = document.getElementById('card'+i)
+                    var newNode = document.createElement('div')
+                    newNode.className = 'card__face card__face--front'
+                    newNode.id = 'face'+i
+                    node.appendChild(newNode)
+                    
+                    node = document.getElementById('face'+i)
+                    newNode = document.createElement('img')
+                    newNode.src = 'https://i.scdn.co/image/' + albums[key][0]['art']
+                    node.appendChild(newNode)
+
+                    newNode = document.createElement('p')
+                    newNode.className = 'withincard'
+                    var text = document.createTextNode(albums[key][0]['artist'])
+                    newNode.appendChild(text)
+                    node.appendChild(newNode)
+
+                    newNode = document.createElement('p')
+                    newNode.className = 'withincard_sub'
+                    var text = document.createTextNode(albums[key][0]['album'])
+                    newNode.appendChild(text)
+                    node.appendChild(newNode)
+                    
+                    node = document.getElementById('card'+i)
+                    newNode = document.createElement('div')
+                    newNode.className = 'card__face card__face--back'
+                    newNode.id = 'back'+i
+                    node.appendChild(newNode)
+
+                    node = document.getElementById('back'+i);
+                    newNode = document.createElement('iframe');
                     newNode.src = 'https://open.spotify.com/embed/album/' + albums[key][0]['id']
                     newNode.width = 300;
                     newNode.height = 380;

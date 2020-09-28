@@ -14,8 +14,6 @@ get_cover_art = "https://api.spotify.com/v1/albums/"
 with open('records.json', 'r') as suggestions:
     sugg = json.load(suggestions)
 
-print(len(sugg))
-
 for k, v in sugg.items():
     for i in range(len(v)):
         data = urlencode({"q": f"album:{v[i]['album']} artist:{k}", "type": "album"})
@@ -35,10 +33,8 @@ for k, v in sugg.items():
             id = y['albums']['items'][0]['uri'].split(":")[2]
             sugg[k][i]['id'] = id
 
-        cover_data_url = f"{get_cover_art}{id}"
-        r = requests.get(cover_data_url,headers=headers)
-        y = json.loads(r.text)
-        sugg[k][i]['art'] = y['images'][1]['url'].split("/")[-1]
+        sugg[k][i]['artist'] = y['albums']['items'][0]['artists'][0]['name']
+        sugg[k][i]['art'] = y['albums']['items'][0]['images'][1]['url'].split("/")[-1]
 
 
 with open('records.json', 'w') as suggestions:
