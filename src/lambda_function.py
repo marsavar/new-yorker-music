@@ -19,7 +19,7 @@ def lambda_handler(event, context):
     # Run scraping function
     scrape()
 
-    # Connect to S3 bucket
+    # Query Spotify API, write into JSON file and upload it to S3
     query_spotify_api()
 
     print("The function ran successfully.")
