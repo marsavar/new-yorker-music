@@ -28,7 +28,38 @@ p {
     font-family: 'Kumbh Sans', sans-serif;
     font-size: 16px;
     color:white;
+    line-height: 150%;
 }
+
+a {
+  text-decoration: none;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+	position: relative;
+  padding-bottom: 2px;
+  
+}
+
+a:after{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 0%;
+	height: 100%;
+
+	border-bottom: 2px solid white;
+	
+	transition: width 0.3s ease;
+}
+
+a:hover:after{
+	left: 0;
+	width: 100%;
+	transition: width .3s ease;
+}
+
 
 .withincard {
         font-family: 'Kumbh Sans', sans-serif;
