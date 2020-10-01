@@ -1,4 +1,4 @@
-# New Yorker Music Project 🎧
+# The New Yorker Music Project 🎧
 #### https://mariosavarese.com/projects/newyorkermusic/
 
 ### How does it work?
