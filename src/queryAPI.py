@@ -38,19 +38,27 @@ def query_spotify_api():
                 # Spotify album ID
                 sugg[k][i]['id'] = y['albums']['items'][0]['uri'].split(":")[2]
 
-            except:
+            except IndexError as e:
                 data = urlencode({"q": f"album:{v[i]['album']}", "type": "album"})
                 lookup_url = f"{endpoint}?{data}"
                 r = requests.get(lookup_url, headers=headers)
                 y = json.loads(r.text)
-                # Spotify album ID
-                sugg[k][i]['id'] = y['albums']['items'][0]['uri'].split(":")[2]
+                try:
+                    # Spotify album ID
+                    sugg[k][i]['id'] = y['albums']['items'][0]['uri'].split(":")[2]
+                except IndexError as e:
+                    pass
 
-            # Spotify artist
-            sugg[k][i]['artist'] = y['albums']['items'][0]['artists'][0]['name']
-
-            # Spotify 300x300 album cover URL
-            sugg[k][i]['art'] = y['albums']['items'][0]['images'][1]['url'].split("/")[-1]
+            try:
+                # Spotify artist
+                sugg[k][i]['artist'] = y['albums']['items'][0]['artists'][0]['name']
+            except:
+                pass
+            try:
+                # Spotify 300x300 album cover URL
+                sugg[k][i]['art'] = y['albums']['items'][0]['images'][1]['url'].split("/")[-1]
+            except:
+                pass
 
     # Update JSON file and upload it to the S3 bucket
     content_object.put(Body=bytes(json.dumps(sugg).encode('UTF-8')), ACL='public-read')

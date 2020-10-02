@@ -23,4 +23,3 @@ def lambda_handler(event, context):
     query_spotify_api()
 
     print("The function ran successfully.")
-
