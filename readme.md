@@ -3,7 +3,7 @@
 
 ### How does it work?
 The script uses Selenium, which runs a headless version of Chrome and scrapes
- https://www.newyorker.com/goings-on-about-town/night-life in order to collect Jazz, Rock, and Pop music
+ [the New Yorker website](https://www.newyorker.com/goings-on-about-town/night-life) in order to collect Jazz, Rock, and Pop music
  recommendations. These are then formatted to JSON and saved into an S3 bucket and displayed
  on the website.
  
@@ -19,3 +19,8 @@ This is because connecting to both the Spotify API and AWS requires authenticati
  `aws_access_key_id`, `aws_secret_access_key` for AWS).
  
  The build is deployed by running the command `make lambda-build`.
+ 
+ ### Acknowledgements
+ 
+[jairovadillo](https://github.com/jairovadillo) for his groundwork on
+ [pychromeless](https://github.com/jairovadillo/pychromeless)
