@@ -62,7 +62,7 @@ def scrape():
             suggestions[artist].append({'album': album})
             added += 1
 
-    # Convert dictionary to JSON file and uploads it to S3 bucket
+    # Convert dictionary to JSON file and upload it to S3 bucket
     content_object.put(Body=bytes(json.dumps(suggestions).encode('UTF-8')), ACL='public-read')
 
     driver.close()

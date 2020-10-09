@@ -50,8 +50,13 @@ def query_spotify_api():
                     pass
 
             try:
-                # Spotify artist
-                sugg[k][i]['artist'] = y['albums']['items'][0]['artists'][0]['name']
+                artist_name = y['albums']['items'][0]['artists'][0]['name']
+
+                # Check that the Spotify artist matches the New Yorker suggestion
+                if artist_name in k:
+                    sugg[k][i]['artist'] = k
+                else:
+                    sugg[k][i]['artist'] = None
             except:
                 pass
             try:

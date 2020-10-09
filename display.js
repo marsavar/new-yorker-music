@@ -1,5 +1,5 @@
 function isValid(album) {
-    return album.hasOwnProperty('id') && album.hasOwnProperty('art')
+    return album.hasOwnProperty('id') && album.hasOwnProperty('art') && album['artist'] != null
 }
 
 $.getJSON( "https://newyorker.s3.eu-west-2.amazonaws.com/records.json", function( albums ) {
@@ -32,7 +32,6 @@ $.getJSON( "https://newyorker.s3.eu-west-2.amazonaws.com/records.json", function
 
     i--;
     
-    console.log(i+" valid albums")
     Object.keys(albums).forEach(key => {
 
         albums[key].forEach(album => {
