@@ -31,7 +31,7 @@ $.getJSON( "https://newyorker.s3.eu-west-2.amazonaws.com/records.json", function
     });
 
     i--;
-    
+
     Object.keys(albums).forEach(key => {
 
         albums[key].forEach(album => {
