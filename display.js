@@ -2,7 +2,7 @@ function isValid(album) {
     return album.hasOwnProperty('id') && album.hasOwnProperty('art') && album['artist'] != null
 }
 
-$.getJSON( "https://newyorker.s3.eu-west-2.amazonaws.com/records.json", function( albums ) {
+$.getJSON("https://newyorker.s3.eu-west-2.amazonaws.com/records.json", function(albums) {
 
     let i = 0;
 
@@ -11,7 +11,7 @@ $.getJSON( "https://newyorker.s3.eu-west-2.amazonaws.com/records.json", function
         albums[key].forEach(album => {
 
             if (isValid(album)) {
-       
+
                 let node = document.getElementById('cont');
                 let newNode = document.createElement('span');
                 newNode.className = 'cardcont';
@@ -21,12 +21,12 @@ $.getJSON( "https://newyorker.s3.eu-west-2.amazonaws.com/records.json", function
                 node = document.getElementById(i);
                 newNode = document.createElement('div');
                 newNode.className = 'card';
-                newNode.id = 'card'+i;
+                newNode.id = 'card' + i;
                 node.appendChild(newNode);
 
-                i++; 
-        }
-           
+                i++;
+            }
+
         })
     });
 
@@ -38,13 +38,13 @@ $.getJSON( "https://newyorker.s3.eu-west-2.amazonaws.com/records.json", function
 
             if (isValid(album)) {
 
-                let node = document.getElementById('card'+i);
+                let node = document.getElementById('card' + i);
                 let newNode = document.createElement('div');
                 newNode.className = 'card__face card__face--front';
-                newNode.id = 'face'+i;
+                newNode.id = 'face' + i;
                 node.appendChild(newNode);
-                
-                node = document.getElementById('face'+i);
+
+                node = document.getElementById('face' + i);
                 newNode = document.createElement('img');
                 newNode.src = 'https://i.scdn.co/image/' + album['art'];
                 node.appendChild(newNode);
@@ -60,14 +60,14 @@ $.getJSON( "https://newyorker.s3.eu-west-2.amazonaws.com/records.json", function
                 text = document.createTextNode(album['album']);
                 newNode.appendChild(text);
                 node.appendChild(newNode);
-                
-                node = document.getElementById('card'+i);
+
+                node = document.getElementById('card' + i);
                 newNode = document.createElement('div');
                 newNode.className = 'card__face card__face--back';
-                newNode.id = 'back'+i;
+                newNode.id = 'back' + i;
                 node.appendChild(newNode);
 
-                node = document.getElementById('back'+i);
+                node = document.getElementById('back' + i);
                 newNode = document.createElement('iframe');
                 newNode.src = 'https://open.spotify.com/embed/album/' + album['id'];
                 newNode.width = 300;
@@ -78,7 +78,7 @@ $.getJSON( "https://newyorker.s3.eu-west-2.amazonaws.com/records.json", function
                 node.appendChild(newNode);
                 i--;
 
-            }   
+            }
         })
     });
 });
