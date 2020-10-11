@@ -70,7 +70,7 @@ $.getJSON("https://newyorker.s3.eu-west-2.amazonaws.com/records.json", function(
                 node = document.getElementById('back' + i);
                 newNode = document.createElement('iframe');
                 newNode.src = 'https://open.spotify.com/embed/album/' + album['id'];
-                newNode.width = 300;
+                newNode.width = "100%";
                 newNode.height = 380;
                 newNode.frameBorder = 0;
                 newNode.allowtransparency = true;
