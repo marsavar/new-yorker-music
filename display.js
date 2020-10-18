@@ -1,8 +1,8 @@
-function isValid(album) {
+let isValid = (album) => {
     return album.hasOwnProperty('id') && album.hasOwnProperty('art') && album['artist'] != null
 }
 
-$.getJSON("https://newyorker.s3.eu-west-2.amazonaws.com/records.json", function(albums) {
+$.getJSON("https://newyorker.s3.eu-west-2.amazonaws.com/records.json", (albums) => {
 
     let i = 0;
 
@@ -24,22 +24,8 @@ $.getJSON("https://newyorker.s3.eu-west-2.amazonaws.com/records.json", function(
                 newNode.id = 'card' + i;
                 node.appendChild(newNode);
 
-                i++;
-            }
-
-        })
-    });
-
-    i--;
-
-    Object.keys(albums).forEach(key => {
-
-        albums[key].forEach(album => {
-
-            if (isValid(album)) {
-
-                let node = document.getElementById('card' + i);
-                let newNode = document.createElement('div');
+                node = document.getElementById('card' + i);
+                newNode = document.createElement('div');
                 newNode.className = 'card__face card__face--front';
                 newNode.id = 'face' + i;
                 node.appendChild(newNode);
@@ -68,6 +54,12 @@ $.getJSON("https://newyorker.s3.eu-west-2.amazonaws.com/records.json", function(
                 node.appendChild(newNode);
 
                 node = document.getElementById('back' + i);
+                newNode = document.createElement('div');
+                newNode.className = 'preloader';
+                newNode.id = 'preloader' + i;
+                node.appendChild(newNode)
+
+                node = document.getElementById('preloader' + i);
                 newNode = document.createElement('iframe');
                 newNode.src = 'https://open.spotify.com/embed/album/' + album['id'];
                 newNode.width = "100%";
@@ -76,9 +68,10 @@ $.getJSON("https://newyorker.s3.eu-west-2.amazonaws.com/records.json", function(
                 newNode.allowtransparency = true;
                 newNode.allow = 'encrypted-media';
                 node.appendChild(newNode);
-                i--;
-
+                i++;
             }
+
         })
     });
+
 });
