@@ -6,8 +6,9 @@
         The New Yorker Music Project
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/237/headphone_1f3a7.png">
+    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="icon"
+        href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/237/headphone_1f3a7.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180275476-1"></script>
     <script>
@@ -25,12 +26,17 @@
 <body>
     <header>
         <h1>The New Yorker Music Project &#127911;</h1>
-        <p>Hi! Here you can find the New Yorker's Jazz, Rock, and Pop music recommendations scraped by a Python script running on AWS Lambda.<br> Hover over the covers to listen to each album's tracks.</p>
-        <p>Want to know how this was built? <a href="https://github.com/MarSavar/NewYorkerMusic" class="third after" target="_blank">Click here for the source code</a></p>
+        <p>Hi! Here you can find the New Yorker's Jazz, Rock, and Pop music recommendations scraped by a Python script
+            running on AWS Lambda.<br> Hover over the covers to listen to each album's tracks.</p>
+        <p>Want to know how this was built? <a href="https://github.com/MarSavar/NewYorkerMusic" class="third after"
+                target="_blank">Click here for the source code</a></p>
     </header>
     <div class="container" id="cont">
-        <script type="text/javascript" src="./display.js"></script>
     </div>
+    <div class="buttoncont">
+        <button id="morealbums">More albums</button>
+    </div>
+    <script type="text/javascript" src="./display.js?v=2"></script>
 </body>
 
 </html>

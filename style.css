@@ -71,7 +71,8 @@ a:hover:after {
 .withincard_sub {
     font-family: 'Kumbh Sans', sans-serif;
     font-weight: 700;
-    font-size: 1.25em;
+    font-size: 1.2em;
+    line-height: 1.15em;
     margin-top: 5px;
     color: black;
 }
@@ -84,7 +85,9 @@ a:hover:after {
     width: 100%;
 }
 
+
 .cardcont {
+    display:none;
     align-items: center;
     background-color: white;
     margin: 20px;
@@ -147,3 +150,29 @@ a:hover:after {
 .preloader {
     background:url('img/loader.svg') center center no-repeat;
   }
+
+.buttoncont {
+    width: 100%;
+    margin-bottom: 30px;
+    padding-bottom:5px;
+}
+#morealbums {
+    border: none;
+    display:block;
+    padding: 25px;
+    margin:20px;
+    background-color: white;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 1.1em;
+    font-weight:700;
+    border-radius:20px;
+    -webkit-box-shadow: 8px 8px 17px -5px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 8px 8px 17px -5px rgba(0, 0, 0, 0.4);
+    box-shadow: 8px 8px 17px -5px rgba(0, 0, 0, 0.4);
+}
+
+#morealbums:hover {
+    cursor: pointer;
+
+}
+

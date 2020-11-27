@@ -1,10 +1,14 @@
+let allAlbums;
+let albumsToDisplay = skipBy = 6;
+let moreAlbums = document.querySelector('#morealbums');
+
+// Check if JSON objects are correctly formatted
 let isValid = (album) => {
-    return album.hasOwnProperty('id') && album.hasOwnProperty('art') && album['artist'] != null
+    return album.hasOwnProperty('id') && album.hasOwnProperty('art') && album['artist'] != null;
 }
 
-
+// Query JSON file and display the albums on the page
 $.getJSON("https://newyorker.s3.eu-west-2.amazonaws.com/records.json", (albums) => {
-
     const validAlbums = [];
 
     Object.keys(albums).forEach(key => {
@@ -16,23 +20,26 @@ $.getJSON("https://newyorker.s3.eu-west-2.amazonaws.com/records.json", (albums) 
         let node = document.getElementById('cont');
         let newNode = document.createElement('span');
         newNode.className = 'cardcont';
-        newNode.id = i;
         node.appendChild(newNode);
 
-        node = document.getElementById(i);
+
+        node = document.querySelectorAll('.cardcont')[i]
         newNode = document.createElement('div');
         newNode.className = 'card';
-        newNode.id = 'card' + i;
+        if (i < skipBy) {
+            // Only display the number of albums defined by skipBy
+            node.style.display = 'block';
+        }
         node.appendChild(newNode);
 
-        node = document.getElementById('card' + i);
+        node = document.querySelectorAll('.card')[i];
         newNode = document.createElement('div');
         newNode.className = 'card__face card__face--front';
-        newNode.id = 'face' + i;
         node.appendChild(newNode);
 
-        node = document.getElementById('face' + i);
+        node = document.querySelectorAll('.card__face.card__face--front')[i];
         newNode = document.createElement('img');
+        newNode.loading = 'lazy';
         newNode.src = 'https://i.scdn.co/image/' + album['art'];
         node.appendChild(newNode);
 
@@ -48,20 +55,19 @@ $.getJSON("https://newyorker.s3.eu-west-2.amazonaws.com/records.json", (albums) 
         newNode.appendChild(text);
         node.appendChild(newNode);
 
-        node = document.getElementById('card' + i);
+        node = document.querySelectorAll('.card')[i];
         newNode = document.createElement('div');
         newNode.className = 'card__face card__face--back';
-        newNode.id = 'back' + i;
         node.appendChild(newNode);
 
-        node = document.getElementById('back' + i);
+        node = document.querySelectorAll('.card__face.card__face--back')[i];
         newNode = document.createElement('div');
         newNode.className = 'preloader';
-        newNode.id = 'preloader' + i;
         node.appendChild(newNode)
 
-        node = document.getElementById('preloader' + i);
+        node = document.querySelectorAll('.preloader')[i];
         newNode = document.createElement('iframe');
+        newNode.loading = 'lazy';
         newNode.src = 'https://open.spotify.com/embed/album/' + album['id'];
         newNode.width = "100%";
         newNode.height = 380;
@@ -71,5 +77,23 @@ $.getJSON("https://newyorker.s3.eu-west-2.amazonaws.com/records.json", (albums) 
         node.appendChild(newNode);
 
     })
+    moreAlbums.innerText = "More albums ("+ (validAlbums.length - skipBy)+")"
+    allAlbums = [...document.querySelectorAll('.cardcont')];
 });
 
+
+moreAlbums.addEventListener('click', function() {
+
+    moreAlbums.innerText = "More albums ("+(allAlbums.length - albumsToDisplay - skipBy)+")"
+
+    for (let i = albumsToDisplay; i < albumsToDisplay + skipBy; i++) {
+        if (allAlbums[i]) allAlbums[i].style.display = 'block';
+    }
+
+    albumsToDisplay += skipBy;
+
+    if (albumsToDisplay >= allAlbums.length) {
+        moreAlbums.innerText = 'No more albums :(';
+        moreAlbums.disabled = true
+    }
+})
