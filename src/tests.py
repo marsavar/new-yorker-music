@@ -22,3 +22,11 @@ def test_Spotify_API_auth4():
     encode_creds = base64.b64decode(decoded_creds)
     encode_decode = base64.b64encode(encode_creds).decode()
     assert decoded_creds == encode_decode
+
+def test_Spotify_API_auth5():
+    data = spotify.get_token_data()
+    assert type(data) == dict
+
+def test_Spotify_API_auth6():
+    data = spotify.get_token_data()
+    assert data['grant_type'] == "client_credentials"
