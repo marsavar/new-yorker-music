@@ -17,7 +17,7 @@ $.getJSON("https://newyorker.s3.eu-west-2.amazonaws.com/records.json", (albums) 
         albums[key].forEach(album => { if (isValid(album)) validAlbums.unshift(album); })
     });
 
-    validAlbums.slice(0,totalFetch).forEach((album, i) => {
+    validAlbums.slice(0, totalFetch).forEach((album, i) => {
 
         let node = document.getElementById('cont');
         let newNode = document.createElement('span');
@@ -79,17 +79,17 @@ $.getJSON("https://newyorker.s3.eu-west-2.amazonaws.com/records.json", (albums) 
         newNode.allow = 'encrypted-media';
         newNode.onload = () => { loader.style.background = "none"; }
         node.appendChild(newNode);
-        
+
 
     })
-    moreAlbums.innerText = "More albums ("+ (validAlbums.splice(0,totalFetch).length - skipBy)+")"
+    moreAlbums.innerText = "More albums (" + (validAlbums.splice(0, totalFetch).length - skipBy) + ")"
     allAlbums = [...document.querySelectorAll('.cardcont')];
 });
 
 
-moreAlbums.addEventListener('click', function() {
+moreAlbums.addEventListener('click', function () {
 
-    moreAlbums.innerText = "More albums ("+(allAlbums.length - albumsToDisplay - skipBy)+")"
+    moreAlbums.innerText = "More albums (" + (allAlbums.length - albumsToDisplay - skipBy) + ")"
 
     for (let i = albumsToDisplay; i < albumsToDisplay + skipBy; i++) {
         if (allAlbums[i]) allAlbums[i].style.display = 'block';
