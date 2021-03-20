@@ -1,6 +1,8 @@
 let allAlbums;
 let albumsToDisplay = skipBy = 6;
 let moreAlbums = document.querySelector('#morealbums');
+let totalFetch = 24;
+
 
 // Check if JSON objects are correctly formatted
 let isValid = (album) => {
@@ -15,7 +17,7 @@ $.getJSON("https://newyorker.s3.eu-west-2.amazonaws.com/records.json", (albums) 
         albums[key].forEach(album => { if (isValid(album)) validAlbums.unshift(album); })
     });
 
-    validAlbums.forEach((album, i) => {
+    validAlbums.slice(0,totalFetch).forEach((album, i) => {
 
         let node = document.getElementById('cont');
         let newNode = document.createElement('span');
@@ -66,6 +68,7 @@ $.getJSON("https://newyorker.s3.eu-west-2.amazonaws.com/records.json", (albums) 
         node.appendChild(newNode)
 
         node = document.querySelectorAll('.preloader')[i];
+        let loader = node
         newNode = document.createElement('iframe');
         newNode.loading = 'lazy';
         newNode.src = 'https://open.spotify.com/embed/album/' + album['id'];
@@ -74,10 +77,12 @@ $.getJSON("https://newyorker.s3.eu-west-2.amazonaws.com/records.json", (albums) 
         newNode.frameBorder = 0;
         newNode.allowtransparency = true;
         newNode.allow = 'encrypted-media';
+        newNode.onload = () => { loader.style.background = "none"; }
         node.appendChild(newNode);
+        
 
     })
-    moreAlbums.innerText = "More albums ("+ (validAlbums.length - skipBy)+")"
+    moreAlbums.innerText = "More albums ("+ (validAlbums.splice(0,totalFetch).length - skipBy)+")"
     allAlbums = [...document.querySelectorAll('.cardcont')];
 });
 
