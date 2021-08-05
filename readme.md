@@ -1,5 +1,4 @@
 # The New Yorker Music Project 🎧
-#### https://www.mariosavarese.com/projects/newyorkermusic/
 
 ### How does it work?
 The script uses Selenium, which runs a headless version of Chrome and scrapes
