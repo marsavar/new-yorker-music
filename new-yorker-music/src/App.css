@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap');
+body {
+    background: #01AA85;
+    background: -webkit-linear-gradient(top left, #01AA85, #FFE428);
+    background: -moz-linear-gradient(top left, #01AA85, #FFE428);
+    background: linear-gradient(to bottom right, #01AA85, #FFE428);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+html {
+    height: 100%;
+    font-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+header {
+    margin: 1.3em;
+}
+
+h1 {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 3em;
+    color: white;
+    margin-top: 10px;
+}
+
+p {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 1em;
+    color: white;
+    line-height: 150%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0%;
+    height: 100%;
+    border-bottom: 1px solid white;
+    transition: width 0.3s ease;
+}
+
+a:hover:after {
+    left: 0;
+    width: 100%;
+    transition: width .3s ease;
+}
+
+.withincard {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 1.1em;
+    color: black;
+    margin-bottom: 5px;
+}
+
+.withincard_sub {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.2em;
+    line-height: 1.15em;
+    margin-top: 5px;
+    color: black;
+}
+
+.container {
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+
+.cardcont {
+    align-items: center;
+    background-color: white;
+    margin: 20px;
+    border-radius: 20px;
+    width: 300px;
+    height: 385px;
+    padding: 25px;
+    overflow: hidden;
+    position: relative;
+    -webkit-box-shadow: 8px 8px 17px -5px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 8px 8px 17px -5px rgba(0, 0, 0, 0.4);
+    box-shadow: 8px 8px 17px -5px rgba(0, 0, 0, 0.4);
+}
+
+.container .cardcont .card {
+    align-self: center;
+    position: relative;
+    color: white;
+    cursor: pointer;
+    -webkit-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.container .cardcont .card:hover {
+    -webkit-transform: rotateY(0.5turn);
+    transform: rotateY(0.5turn);
+}
+
+.container .cardcont .card .card__face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+}
+
+.container .cardcont .card .card__face img {
+    border-radius: 3%;
+    width: 100%;
+    height: 300px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.container .cardcont .card .card__face--back {
+    position: absolute;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    -webkit-transform: rotateY(0.5turn);
+    transform: rotateY(0.5turn);
+}
+
+.preloader {
+    background:url('img/loader.svg') center center no-repeat;
+  }
+
+.buttoncont {
+    width: 100%;
+    margin-bottom: 30px;
+    padding-bottom:5px;
+}
+.morealbums {
+    border: none;
+    display:inline-block;
+    padding: 25px;
+    margin:20px;
+    background-color: white;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 1.1em;
+    font-weight:700;
+    border-radius:20px;
+    -webkit-box-shadow: 8px 8px 17px -5px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 8px 8px 17px -5px rgba(0, 0, 0, 0.4);
+    box-shadow: 8px 8px 17px -5px rgba(0, 0, 0, 0.4);
+}
+
+.morealbums:hover {
+    cursor: pointer;
+
+}
+
