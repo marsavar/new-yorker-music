@@ -1,5 +1,9 @@
 # The New Yorker Music Project 🎧
 
+### November 2021 notes
+Rewrote the frontend in React. 
+The original Python code running on AWS Lambda remains untouched (and ugly).
+
 ### How does it work?
 The script uses Selenium, which runs a headless version of Chrome and scrapes
  [the New Yorker website](https://www.newyorker.com/goings-on-about-town/night-life) in order to collect Jazz, Rock, 
@@ -24,3 +28,4 @@ Spotify; `aws_access_key_id`, `aws_secret_access_key` for AWS).
  
 [jairovadillo](https://github.com/jairovadillo) for his groundwork on
  [pychromeless](https://github.com/jairovadillo/pychromeless)
+
