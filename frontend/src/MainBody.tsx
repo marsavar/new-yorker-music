@@ -45,7 +45,7 @@ export const MainBody: FC = () => {
     <>
       <div className="container" id="cont">
         {allRecords.slice(0, totalFetch).map((card: ValidAlbum) => (
-          <Card album={card} visible={true} />
+          <Card album={card} visible={true} key={card.id} />
         ))}{" "}
       </div>
       <div className="buttoncont">
