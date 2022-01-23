@@ -1,15 +1,13 @@
 import { FC, useState } from "react";
 import { ValidAlbum } from "./App";
 
-export const Card: FC<{ album: ValidAlbum; visible: boolean }> = ({
+export const Card: FC<{ album: ValidAlbum }> = ({
   album,
-  visible,
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   return (
     <span
       className="cardcont"
-      style={visible ? { display: "block" } : { display: "none " }}
     >
       <div className="card">
         <div className="card__face card__face--front">
