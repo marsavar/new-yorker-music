@@ -52,7 +52,8 @@ export const MainBody: FC = () => {
   }
 
   const displayAll = () => {
-    setAllRecords(initialRecords)
+    setAllRecords(initialRecords);
+    setResults(0);
     setDisabled(false);
   }
 
