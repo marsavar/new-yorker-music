@@ -22,6 +22,7 @@ export const MainBody: FC = () => {
     setInitialRecords(validAlbums);
   };
 
+  const searchBar = document.getElementById("searchBar") as HTMLInputElement;
   const handleChange = (val: string) => {
     if (val.length > 0) {
       const findAlbums = initialRecords.filter(
@@ -41,6 +42,7 @@ export const MainBody: FC = () => {
   const feelingLucky = () => {
     const randomAlbumIndex = Math.floor(Math.random() * initialRecords.length);
     setAllRecords([initialRecords[randomAlbumIndex]]);
+    searchBar.value = "";
     setResults(0);
     setTotalFetch(24);
   };
@@ -83,13 +85,11 @@ export const MainBody: FC = () => {
           Feeling lucky?
         </button>
       </div>
-      {(document.getElementById("searchBar") as HTMLInputElement) &&
-        (document.getElementById("searchBar") as HTMLInputElement).value
-          .length > 0 && (
-          <div className="results">
-            {results.toString()} result{results !== 1 ? "s" : null}
-          </div>
-        )}
+      {searchBar && searchBar.value.length > 0 && (
+        <div className="results">
+          {results.toString()} result{results !== 1 ? "s" : null}
+        </div>
+      )}
       <div className="container" id="cont">
         {allRecords.slice(0, totalFetch).map((card: ValidAlbum) => (
           <Card album={card} key={card.id} />
