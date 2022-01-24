@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { ValidAlbum } from "./App";
+import svgLoader from "./loader.svg";
 
 export const Card: FC<{ album: ValidAlbum }> = ({
   album,
@@ -20,7 +21,7 @@ export const Card: FC<{ album: ValidAlbum }> = ({
             style={
               isLoading
                 ? {
-                    background: "url('src/loader.svg') center center no-repeat",
+                    background: `url('${svgLoader}') center center no-repeat`,
                   }
                 : { background: "none" }
             }

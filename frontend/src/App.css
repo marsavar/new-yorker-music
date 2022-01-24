@@ -157,15 +157,13 @@ a:hover:after {
 }
 
 input {
-    margin-bottom: 30px;
-    padding-bottom:5px;
     border: none;
     display:inline-block;
-    padding: 25px;
-    margin:20px;
+    padding: 15px;
+    margin: 0 0 20px 20px;
     background-color: white;
     font-family: 'Kumbh Sans', sans-serif;
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight:700;
     border-radius:20px;
     -webkit-box-shadow: 8px 8px 17px -5px rgba(0, 0, 0, 0.4);
@@ -173,8 +171,16 @@ input {
     box-shadow: 8px 8px 17px -5px rgba(0, 0, 0, 0.4);
 }
 
-.morealbums {
-    color: black;
+input {
+    border: none;
+    outline: none;
+    background-color: white;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 1.1em;
+    font-weight:700;
+}
+
+.morealbums, .scrollToTop {
     border: none;
     display:inline-block;
     padding: 25px;
@@ -193,18 +199,21 @@ input {
     color:black;
     border: none;
     display:inline-block;
-    padding: 25px;
-    margin:12px;
+    margin-left:20px;
+    padding: 15px;
     background-color: white;
     font-family: 'Kumbh Sans', sans-serif;
-    font-size: 1.1em;
-    font-weight:700;
+    font-size: 1em;
+    font-weight:400;
     border-radius:20px;
     -webkit-box-shadow: 8px 8px 17px -5px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 8px 8px 17px -5px rgba(0, 0, 0, 0.4);
     box-shadow: 8px 8px 17px -5px rgba(0, 0, 0, 0.4);
 }
 
+.searchBox {
+   margin-top: 30px;
+}
 .results {
     color: white;
     margin-left: 30px;
@@ -214,7 +223,7 @@ input {
     
 }
 
-.morealbums:hover, .feelingLucky:hover, .displayAll:hover {
+.morealbums:hover, .feelingLucky:hover, .displayAll:hover, .scrollToTop:hover {
     cursor: pointer;
 }
 
