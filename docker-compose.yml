@@ -4,8 +4,8 @@ services:
   lambda: 
     build: .
     environment:
-      - PYTHONPATH=/var/task/lambda:/var/task/lib
+      - PYTHONPATH=/var/task/lambda/src:/var/task/lib
       - PATH=/var/task/bin:/var/task/bin/lib
     volumes:
-      - ./lambda/:/var/task/lambda/
+      - ./lambda/src/:/var/task/lambda/src
       - ./tmp/:/tmp/

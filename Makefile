@@ -16,7 +16,7 @@ lambda-run:
 ## prepares build.zip archive for AWS Lambda deploy 
 lambda-build: clean 
 	mkdir build build/lib
-	cp -r lambda build/.
+	cp -r lambda/src build/.
 	cp -r bin build/.
 	pip3 install -r requirements.txt -t build/lib
 	cd build; zip -9qr build.zip .
