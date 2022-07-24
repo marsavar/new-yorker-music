@@ -44,7 +44,7 @@ def scrape():
     except:
         suggestions = dict()
 
-    added = 0
+    scraped_albums = 0
 
     # Add artists and albums to the dictionary
     for elem in elements:
@@ -56,15 +56,15 @@ def scrape():
 
         if artist not in suggestions.keys():
             suggestions[artist] = [{'album': album}]
-            added += 1
+            scraped_albums += 1
 
         elif not any(d['album'] == album for d in suggestions[artist]):
             suggestions[artist].append({'album': album})
-            added += 1
+            scraped_albums += 1
 
     # Convert dictionary to JSON file and upload it to S3 bucket
     content_object.put(Body=bytes(json.dumps(suggestions).encode('UTF-8')), ACL='public-read')
 
+    print(f"Scraped {scraped_albums} albums")
     driver.close()
-
-    print("Added", added, "albums")
+    
