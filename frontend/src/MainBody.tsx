@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { ValidAlbum } from "./App";
 import { Card } from "./Card";
+import { Loading } from "./Loading";
 
 export const isValid = (album: any): boolean => {
   return (
@@ -18,6 +19,7 @@ export const MainBody: FC = () => {
       .flat()
       .reverse()
       .filter(isValid) as ValidAlbum[];
+    setIsFetchingData(false);
     setAllRecords(validAlbums);
     setInitialRecords(validAlbums);
   };
@@ -44,13 +46,13 @@ export const MainBody: FC = () => {
     setAllRecords([initialRecords[randomAlbumIndex]]);
     searchBar.value = "";
     setResults(0);
-    setTotalFetch(24);
+    setTotalFetch(totalFetch);
   };
 
   const displayAll = () => {
     setAllRecords(initialRecords);
     setResults(0);
-    setTotalFetch(24);
+    setTotalFetch(totalFetch);
   };
 
   const allAlbums = "https://newyorker.s3.eu-west-2.amazonaws.com/records.json";
@@ -62,6 +64,7 @@ export const MainBody: FC = () => {
   const [buttonText, setButtonText] = useState<string>("");
   const [totalFetch, setTotalFetch] = useState<number>(24);
   const [results, setResults] = useState<number>(0);
+  const [isFetchingData, setIsFetchingData] = useState<boolean>(true);
 
   useEffect(() => {
     setDisplay(allRecords.length - totalFetch);
@@ -70,21 +73,24 @@ export const MainBody: FC = () => {
 
   return (
     <>
-      <div className="searchBox">
-        <input
-          id="searchBar"
-          type="text"
-          placeholder="Search..."
-          onChange={(e) => handleChange(e.target.value)}
-          autoFocus
-        ></input>
-        <button className="displayAll" onClick={displayAll}>
-          Display all
-        </button>
-        <button className="feelingLucky" onClick={feelingLucky}>
-          Feeling lucky?
-        </button>
-      </div>
+      {isFetchingData ? <Loading text={"Loading albums"} /> : null}
+      {!isFetchingData ? (
+        <div className="searchBox">
+          <input
+            id="searchBar"
+            type="text"
+            placeholder="Search..."
+            onChange={(e) => handleChange(e.target.value)}
+            autoFocus
+          ></input>
+          <button className="displayAll" onClick={displayAll}>
+            Display all
+          </button>
+          <button className="feelingLucky" onClick={feelingLucky}>
+            Feeling lucky?
+          </button>
+        </div>
+      ) : null}
       {searchBar && searchBar.value.length > 0 && (
         <div className="results">
           {results.toString()} result{results !== 1 ? "s" : null}
@@ -93,32 +99,30 @@ export const MainBody: FC = () => {
       <div className="container" id="cont">
         {allRecords.slice(0, totalFetch).map((card: ValidAlbum) => (
           <Card album={card} key={card.id} />
-        ))}{" "}
+        ))}
       </div>
       <div className="buttoncont">
-        {display - skipBy > 0 ? (
+        {!isFetchingData && display > 0 ? (
           <button
             className="morealbums"
             onClick={() => {
-              if (display! - skipBy > 0) {
-                setDisplay(display! - skipBy);
-                setTotalFetch(totalFetch + skipBy);
-                setButtonText(`More albums (${display})`);
-              } else {
-                setTotalFetch(allRecords.length);
-              }
+              setDisplay(display - skipBy);
+              setTotalFetch(totalFetch + skipBy);
+              setButtonText(`More albums (${display})`);
             }}
           >
             {buttonText}
           </button>
         ) : null}
 
-        <button
-          className="scrollToTop"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        >
-          Scroll to top
-        </button>
+        {!isFetchingData ? (
+          <button
+            className="scrollToTop"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            Scroll to top
+          </button>
+        ) : null}
       </div>
     </>
   );

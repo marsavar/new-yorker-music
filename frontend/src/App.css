@@ -180,7 +180,7 @@ input {
     font-weight:700;
 }
 
-.morealbums, .scrollToTop {
+.morealbums, .scrollToTop, .loading {
     border: none;
     display:inline-block;
     padding: 25px;
