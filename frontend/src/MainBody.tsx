@@ -54,12 +54,12 @@ export const MainBody: FC = () => {
   };
 
   const allAlbums = "https://newyorker.s3.eu-west-2.amazonaws.com/records.json";
-  const skipBy = 12;
+  const skipBy = 24;
 
   const [allRecords, setAllRecords] = useState<Array<ValidAlbum>>([]);
   const [initialRecords, setInitialRecords] = useState<Array<ValidAlbum>>([]);
-  const [display, setDisplay] = useState<number>();
-  const [buttonText, setButtonText] = useState<string>();
+  const [display, setDisplay] = useState<number>(0);
+  const [buttonText, setButtonText] = useState<string>("");
   const [totalFetch, setTotalFetch] = useState<number>(24);
   const [results, setResults] = useState<number>(0);
 
@@ -96,7 +96,7 @@ export const MainBody: FC = () => {
         ))}{" "}
       </div>
       <div className="buttoncont">
-        {display! - skipBy > 0 ? (
+        {display - skipBy > 0 ? (
           <button
             className="morealbums"
             onClick={() => {
@@ -111,14 +111,14 @@ export const MainBody: FC = () => {
           >
             {buttonText}
           </button>
-        ) : totalFetch > 24 ? (
-          <button
-            className="scrollToTop"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          >
-            Scroll to top
-          </button>
         ) : null}
+
+        <button
+          className="scrollToTop"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          Scroll to top
+        </button>
       </div>
     </>
   );
