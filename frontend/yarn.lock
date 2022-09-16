@@ -264,92 +264,6 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@react-spring/animated@~9.5.4":
-  version "9.5.4"
-  resolved "https://registry.npmjs.org/@react-spring/animated/-/animated-9.5.4.tgz"
-  integrity sha512-gYd+xWwcNxEGA9EdORz/xsGsuQmz46FCu7OLIGOZK00fiSkjEM8yTwBQ9i8SUslRAdxTW+POL5OctDpCA6A7xw==
-  dependencies:
-    "@react-spring/shared" "~9.5.4"
-    "@react-spring/types" "~9.5.4"
-
-"@react-spring/core@~9.5.4":
-  version "9.5.4"
-  resolved "https://registry.npmjs.org/@react-spring/core/-/core-9.5.4.tgz"
-  integrity sha512-ZQxS5+5i6dVWL8mnRbrUMdkT7TfWhdIYYe2ze3my2SNAKC14JjxHxeknX57ywRyudskR1Z9CQjiC8aXX6QBl7w==
-  dependencies:
-    "@react-spring/animated" "~9.5.4"
-    "@react-spring/rafz" "~9.5.4"
-    "@react-spring/shared" "~9.5.4"
-    "@react-spring/types" "~9.5.4"
-
-"@react-spring/konva@~9.5.4":
-  version "9.5.4"
-  resolved "https://registry.npmjs.org/@react-spring/konva/-/konva-9.5.4.tgz"
-  integrity sha512-2myKIYXdApmdXDmvYcv/d85xHb7pLHKDJvE5fT+7qWYgCTtz9euUIaWWTkAbL0Sq9k55AB6RKT04p+xmu2PXGw==
-  dependencies:
-    "@react-spring/animated" "~9.5.4"
-    "@react-spring/core" "~9.5.4"
-    "@react-spring/shared" "~9.5.4"
-    "@react-spring/types" "~9.5.4"
-
-"@react-spring/native@~9.5.4":
-  version "9.5.4"
-  resolved "https://registry.npmjs.org/@react-spring/native/-/native-9.5.4.tgz"
-  integrity sha512-EVjAA++fBKW3RX++XJHUs5BYYd91kavjpYoHh75v8xV9td6GCgFBUw9P8zAeU1Hfe1ze4VWPcXgkhLX/g2e4ag==
-  dependencies:
-    "@react-spring/animated" "~9.5.4"
-    "@react-spring/core" "~9.5.4"
-    "@react-spring/shared" "~9.5.4"
-    "@react-spring/types" "~9.5.4"
-
-"@react-spring/rafz@~9.5.4":
-  version "9.5.4"
-  resolved "https://registry.npmjs.org/@react-spring/rafz/-/rafz-9.5.4.tgz"
-  integrity sha512-Tmev2j7sq2FW3ISUClnNS0PhkCsBfPPpkHVMxz8mkIKzMGXWskd0GblOoPVJiWvhbccaX/NYd+ykJqJ1gY0v9g==
-
-"@react-spring/shared@~9.5.4":
-  version "9.5.4"
-  resolved "https://registry.npmjs.org/@react-spring/shared/-/shared-9.5.4.tgz"
-  integrity sha512-22IYmNOzDRP9e5BaQk6T/P2aRxne9uTzGDYuBQCbJpChZypB98xWBMKlVTKdSRG7K4v+F97KFPAKBQzS/k7p5Q==
-  dependencies:
-    "@react-spring/rafz" "~9.5.4"
-    "@react-spring/types" "~9.5.4"
-
-"@react-spring/three@~9.5.4":
-  version "9.5.4"
-  resolved "https://registry.npmjs.org/@react-spring/three/-/three-9.5.4.tgz"
-  integrity sha512-grbkmBKuKyTdhDsGiSbFoKMhknJa2BwKo6sfbWjyypTpoJLXQAvW2GXmSgbcis1vLp19VrWy7zRqTJS5CZgkhQ==
-  dependencies:
-    "@react-spring/animated" "~9.5.4"
-    "@react-spring/core" "~9.5.4"
-    "@react-spring/shared" "~9.5.4"
-    "@react-spring/types" "~9.5.4"
-
-"@react-spring/types@~9.5.4":
-  version "9.5.4"
-  resolved "https://registry.npmjs.org/@react-spring/types/-/types-9.5.4.tgz"
-  integrity sha512-dzcGxqL1kPKociXK+pcq5ley77cWDWiphfv8OREv8dAZS1dKDTJq1zVy7ZD5ocyMtKMZw/7AcOdIJ1H80Dp56g==
-
-"@react-spring/web@~9.5.4":
-  version "9.5.4"
-  resolved "https://registry.npmjs.org/@react-spring/web/-/web-9.5.4.tgz"
-  integrity sha512-HoypE3kL/ZUBB81hThE1hB9jYBgJmfeluEOPYoI/wGHyF1q8O0AYpWClvdAbiK3FTESHYZi2m60jwitF7VYUlQ==
-  dependencies:
-    "@react-spring/animated" "~9.5.4"
-    "@react-spring/core" "~9.5.4"
-    "@react-spring/shared" "~9.5.4"
-    "@react-spring/types" "~9.5.4"
-
-"@react-spring/zdog@~9.5.4":
-  version "9.5.4"
-  resolved "https://registry.npmjs.org/@react-spring/zdog/-/zdog-9.5.4.tgz"
-  integrity sha512-4B0LxvoSrJKy3cEGLzwpeyGKXASJQAdlBB1BLj4l7RsbKfGAXR40VLuwhJVLYiYgUjJ9vur1i33R2qrTzJkrZA==
-  dependencies:
-    "@react-spring/animated" "~9.5.4"
-    "@react-spring/core" "~9.5.4"
-    "@react-spring/shared" "~9.5.4"
-    "@react-spring/types" "~9.5.4"
-
 "@rollup/pluginutils@^4.1.1":
   version "4.1.1"
   resolved "https://registry.npmjs.org/@rollup/pluginutils/-/pluginutils-4.1.1.tgz"
@@ -713,18 +627,6 @@ react-refresh@^0.10.0:
   version "0.10.0"
   resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.10.0.tgz"
   integrity sha512-PgidR3wST3dDYKr6b4pJoqQFpPGNKDSCDx4cZoshjXipw3LzO7mG1My2pwEzz2JVkF+inx3xRpDeQLFQGH/hsQ==
-
-react-spring@^9.5.4:
-  version "9.5.4"
-  resolved "https://registry.npmjs.org/react-spring/-/react-spring-9.5.4.tgz"
-  integrity sha512-CelndH5CfAhiitqc2BbJ4b7DBou5M8qX2NMnc3vBHJIhp1Dp7KMA5nGCEtj9M9xOtCIpbPwB5XWbjttCDXOL4g==
-  dependencies:
-    "@react-spring/core" "~9.5.4"
-    "@react-spring/konva" "~9.5.4"
-    "@react-spring/native" "~9.5.4"
-    "@react-spring/three" "~9.5.4"
-    "@react-spring/web" "~9.5.4"
-    "@react-spring/zdog" "~9.5.4"
 
 react@^17.0.0:
   version "17.0.2"
