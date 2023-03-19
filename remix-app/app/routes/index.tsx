@@ -32,12 +32,12 @@ export async function loader({ request }: any) {
     "https://newyorker.s3.eu-west-2.amazonaws.com/records.json"
   );
   const json_albums = await albums.json();
-  const a = Object.values(json_albums).flat().reverse().filter(isValid);
+  const allAlbums = Object.values(json_albums).flat().reverse().filter(isValid);
 
-  const validAlbums = a.slice(page * PRELOAD, page * PRELOAD + PRELOAD);
+  const validAlbums = allAlbums.slice(page * PRELOAD, page * PRELOAD + PRELOAD);
 
   return {
-    totalAlbums: a.length,
+    allAlbums,
     albums: validAlbums,
     id,
     page,
@@ -54,7 +54,7 @@ const albumExists = (albums: Album[], id: string): boolean => {
 
 export default function Index() {
   const data = useLoaderData() as {
-    totalAlbums: number;
+    allAlbums: Album[];
     albums: Album[];
     id: string | null;
     page: number;
@@ -62,7 +62,7 @@ export default function Index() {
 
   const [albumId, setAlbumId] = useState<string | null>(data.id);
   const [isOpen, setIsOpen] = useState(
-    albumId !== null && albumExists(data.albums, albumId)
+    albumId !== null && albumExists(data.allAlbums, albumId)
   );
   const [albumsToDisplay, setAlbumsToDisplay] = useState(data.albums);
   const fetcher = useFetcher();
@@ -87,7 +87,7 @@ export default function Index() {
     fetcher.load(query);
   };
 
-  const TOTAL_PAGES = Math.floor(data.totalAlbums / PRELOAD);
+  const TOTAL_PAGES = Math.floor(data.allAlbums.length / PRELOAD);
 
   return (
     <InfiniteScroller loadNext={loadNext} loading={fetcher.state === "loading"}>
