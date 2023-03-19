@@ -27,8 +27,13 @@ Spotify; `aws_access_key_id`, `aws_secret_access_key` for AWS).
 
  #### Frontend
  
-`cd` into `frontend`, then run `yarn dev`.
+`cd` into `remix-app`, then run `npm run install` to install the required dependencies,
+then run `npm run dev` to start the local development server.
+
 A local version of the website will be available at `http://localhost:3000`
+
+The app is currently deployed to production with [fly.io](https://fly.io).
+
  ### Acknowledgements
  
 [jairovadillo](https://github.com/jairovadillo) for his groundwork on
