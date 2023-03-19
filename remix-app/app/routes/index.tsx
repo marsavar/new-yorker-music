@@ -132,7 +132,7 @@ export default function Index() {
                   <Transition
                     show={true}
                     appear={true}
-                    enter="transition ease duration-500 transform"
+                    enter="transition ease duration-1000 transform"
                     enterFrom="opacity-0 ease-in"
                     enterTo="opacity-100"
                   >
