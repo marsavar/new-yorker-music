@@ -17,7 +17,7 @@ export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "The New Yorker Music Project",
   description:
-    "An archive of the New Yorker's Jazz, Rock, and Pop music recommendations",
+    "A living archive of the New Yorker's Jazz, Rock, and Pop music recommendations. New albums every Friday.",
   keywords:
     "New Yorker,jazz,rock,pop,music,recommendations,scraper,python,lambda,aws,New Yorker Music Project",
   viewport: "width=device-width,initial-scale=1",

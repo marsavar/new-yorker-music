@@ -101,14 +101,14 @@ export default function Index() {
         <>
           {" "}
           <div className="w-auto h-auto p-4 font-mono">
-            An archive of the{" "}
+            A living archive of the{" "}
             <span className="underline">
               <Link to="https://www.newyorker.com/goings-on-about-town/night-life">
                 New Yorker's Jazz, Rock, and Pop music recommendations
               </Link>
             </span>{" "}
             scraped by a Lambda function that has been running on AWS since
-            September 2020.
+            September 2020. New albums every Friday.
             <Link to="https://ko-fi.com/G2G58QFRM" target="_blank">
               <img
                 className=" border-0 h-[36px] mt-4"
